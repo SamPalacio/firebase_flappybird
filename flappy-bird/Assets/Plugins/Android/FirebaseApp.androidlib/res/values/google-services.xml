@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://flappy-bird-by-sam-default-rtdb.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">290994115614</string>
+  <string name="google_storage_bucket" translatable="false">flappy-bird-by-sam.appspot.com</string>
+  <string name="project_id" translatable="false">flappy-bird-by-sam</string>
+  <string name="google_api_key" translatable="false">AIzaSyACNMQYfFYrjz1FtibHw_xzvNEsEEe0jfc</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyACNMQYfFYrjz1FtibHw_xzvNEsEEe0jfc</string>
+  <string name="google_app_id" translatable="false">1:290994115614:android:2e89be893c5ac347844a0f</string>
+  <string name="default_web_client_id" translatable="false">290994115614-s60mulv1gek6136crue4q4l68tibuind.apps.googleusercontent.com</string>
+</resources>

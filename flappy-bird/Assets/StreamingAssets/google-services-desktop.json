@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "290994115614",
+    "firebase_url": "https://flappy-bird-by-sam-default-rtdb.firebaseio.com",
+    "project_id": "flappy-bird-by-sam",
+    "storage_bucket": "flappy-bird-by-sam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290994115614:android:2e89be893c5ac347844a0f",
+        "android_client_info": {
+          "package_name": "com.sam.flappybird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "290994115614-s60mulv1gek6136crue4q4l68tibuind.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACNMQYfFYrjz1FtibHw_xzvNEsEEe0jfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "290994115614-s60mulv1gek6136crue4q4l68tibuind.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
