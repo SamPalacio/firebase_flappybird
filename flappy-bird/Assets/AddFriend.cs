@@ -12,7 +12,7 @@ public class AddFriend : MonoBehaviour
     private User selectedUser;
    public void ShowRequestInfo(Id id)
     {
-        selectedUser = UsersOnlineController.activeUsers[id.userId];
+        selectedUser = UsersOnlineController.instance.activeUsers[id.userId];
         requestPanel.SetActive(true);
         username.text = selectedUser.userName;
     }

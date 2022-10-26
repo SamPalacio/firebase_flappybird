@@ -11,7 +11,7 @@ using Firebase;
 
 public class UsersOnlineController : MonoBehaviour
 {
-    public static Dictionary<string, User> activeUsers = new Dictionary<string, User>();
+    public  Dictionary<string, User> activeUsers = new Dictionary<string, User>();
 
     public static UsersOnlineController instance;
     DatabaseReference mDatabase;
