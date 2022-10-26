@@ -40,7 +40,6 @@ public class UsersOnlineController : MonoBehaviour
 
     public void InitUsersOnlineController()
     {
-        FirebaseDatabase.DefaultInstance.LogLevel = LogLevel.Verbose;
 
         var userOnlineRef = FirebaseDatabase.DefaultInstance
         .GetReference("online-users");
@@ -89,19 +88,16 @@ public class UsersOnlineController : MonoBehaviour
 
         Dictionary<string, object> userDisconnected = (Dictionary<string, object>)args.Snapshot.Value;
 
-        if (userDisconnected.ContainsKey("id"))
-        {
+        
             User user = activeUsers[(string)userDisconnected["id"]];
 
 
             ActiveUsers.Instance.RemovePlayerSlot(user);
 
-            if (activeUsers.ContainsKey((string)userDisconnected["id"]))
-            {
+           
                 activeUsers.Remove((string)userDisconnected["id"]);
 
-            }
-        }
+     
 
 
         Debug.Log(userDisconnected["username"] + " is offline");
