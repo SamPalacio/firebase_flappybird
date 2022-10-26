@@ -65,11 +65,15 @@ public class UsersOnlineController : MonoBehaviour
         
             User user = new User((string)userConnected["username"], (string)userConnected["id"]);
 
-            ActiveUsers.Instance.AddPlayerSlot(user);
 
+        if (!activeUsers.ContainsKey((string)userConnected["id"]))
+        {
+            ActiveUsers.Instance.AddPlayerSlot(user);
             activeUsers.Add((string)userConnected["id"], user);
 
-            Debug.Log(userConnected["username"] + " is online");
+        }
+
+        Debug.Log(userConnected["username"] + " is online");
         
 
            
