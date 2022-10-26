@@ -4,13 +4,28 @@ using UnityEngine;
 using Firebase.Auth;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Firebase.Database;
+
 public class ButtonLogOut : MonoBehaviour,IPointerClickHandler
 {
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        FirebaseAuth.DefaultInstance.SignOut();
-        SceneManager.LoadScene(0);
-    }
+    private DatabaseReference database;
 
    
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+        UsersOnlineController.instance.SetUserOffline();
+        FirebaseAuth.DefaultInstance.SignOut();
+        SceneManager.LoadScene(0);
+
+      
+
+    }
+
+    
+
+  
+
+
 }

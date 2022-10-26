@@ -19,6 +19,6 @@ public class SceneController : MonoBehaviour
 
     void NextScene(FirebaseUser user)
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("Lobby");
     }
 }
