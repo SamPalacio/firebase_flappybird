@@ -12,7 +12,7 @@ public class Lobby : MonoBehaviour
     public static string userName;
     public static Action OnLobbyEnter;
     private DatabaseReference database;
-
+    bool dataReady=false;
   
 
     private void OnEnable()
@@ -40,6 +40,7 @@ public class Lobby : MonoBehaviour
         {
           
             SetUserOnline(currentUser.UserId);
+            StartCoroutine(WaitData());
         }
 
 
@@ -67,20 +68,17 @@ public class Lobby : MonoBehaviour
                 PlayerPrefs.SetString("userID", UserId);
 
 
-                database.Child("online-users").Child(UserId).Child("id").SetValueAsync(UserId).ContinueWithOnMainThread(task =>
+
+                UserOnline user = new UserOnline(UserId, userName);
+                string json = JsonUtility.ToJson(user);
+
+                database.Child("online-users").Child(UserId).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
                 {
-                    database.Child("online-users").Child(UserId).Child("username").SetValueAsync(userName).ContinueWithOnMainThread(task =>
-                    {
 
-                        if (task.IsCompleted) { 
-                       
-
-                        OnLobbyEnter?.Invoke();
-                        Debug.Log("Entering");
-                        }
-                    });
-
+                    dataReady = true;
                 });
+
+               
                
 
               
@@ -92,6 +90,13 @@ public class Lobby : MonoBehaviour
       
     }
 
+    IEnumerator WaitData()
+    {
+        yield return new WaitUntil(() => dataReady == true);
+        
+            OnLobbyEnter?.Invoke();
+        
+    }
   
 
 
@@ -99,5 +104,17 @@ public class Lobby : MonoBehaviour
     {
         SceneManager.LoadScene("main");
 
+    }
+
+    public class UserOnline {
+
+        public string id;
+        public string username;
+
+        public UserOnline(string id, string username)
+        {
+            this.id = id;
+            this.username = username;
+        }
     }
 }

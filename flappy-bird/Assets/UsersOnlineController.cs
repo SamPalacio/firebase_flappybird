@@ -57,7 +57,7 @@ public class UsersOnlineController : MonoBehaviour
         if (args.DatabaseError != null)
         {
             Debug.Log("error");
-          
+           return;
         }
 
 
@@ -82,8 +82,10 @@ public class UsersOnlineController : MonoBehaviour
         if (args.DatabaseError != null)
         {
             Debug.LogError(args.DatabaseError.Message);
+            return;
+
         }
-        
+
 
         Dictionary<string, object> userDisconnected = (Dictionary<string, object>)args.Snapshot.Value;
 
