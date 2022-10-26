@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Firebase.Database;
+using Firebase.Extensions;
 
 public class AddFriend : MonoBehaviour
 {
@@ -14,4 +16,12 @@ public class AddFriend : MonoBehaviour
         requestPanel.SetActive(true);
         username.text = selectedUser.userName;
     }
+
+    public void SendFriendRequest()
+    {
+
+
+       
+
+     }
 }

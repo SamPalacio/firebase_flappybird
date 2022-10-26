@@ -62,8 +62,7 @@ public class UsersOnlineController : MonoBehaviour
 
         
         Dictionary<string, object> userConnected = (Dictionary<string, object>)args.Snapshot.Value;
-        if (userConnected.ContainsKey("id") && userConnected.ContainsKey("id"))
-        {
+        
             User user = new User((string)userConnected["username"], (string)userConnected["id"]);
 
             ActiveUsers.Instance.AddPlayerSlot(user);
@@ -71,7 +70,7 @@ public class UsersOnlineController : MonoBehaviour
             activeUsers.Add((string)userConnected["id"], user);
 
             Debug.Log(userConnected["username"] + " is online");
-        }
+        
 
            
         
