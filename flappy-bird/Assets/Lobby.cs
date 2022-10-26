@@ -67,13 +67,14 @@ public class Lobby : MonoBehaviour
                 PlayerPrefs.SetString("userID", UserId);
 
 
-                database.Child("online-users").Child(UserId).Child("username").SetValueAsync(userName).ContinueWithOnMainThread(task =>
+                database.Child("online-users").Child(UserId).Child("id").SetValueAsync(UserId).ContinueWithOnMainThread(task =>
                 {
-                    database.Child("online-users").Child(UserId).Child("id").SetValueAsync(UserId).ContinueWithOnMainThread(task =>
+                    database.Child("online-users").Child(UserId).Child("username").SetValueAsync(userName).ContinueWithOnMainThread(task =>
                     {
 
                         if (task.IsCompleted) { 
                        
+
                         OnLobbyEnter?.Invoke();
                         Debug.Log("Entering");
                         }

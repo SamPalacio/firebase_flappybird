@@ -56,7 +56,8 @@ public class UsersOnlineController : MonoBehaviour
     {
         if (args.DatabaseError != null)
         {
-            return;
+            Debug.Log("error");
+          
         }
 
 
@@ -81,7 +82,6 @@ public class UsersOnlineController : MonoBehaviour
         if (args.DatabaseError != null)
         {
             Debug.LogError(args.DatabaseError.Message);
-            return;
         }
         
 
@@ -100,11 +100,12 @@ public class UsersOnlineController : MonoBehaviour
 
             }
         }
-        
-           
 
-        
-           
+
+        Debug.Log(userDisconnected["username"] + " is offline");
+
+
+
 
 
     }
