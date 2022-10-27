@@ -9,6 +9,7 @@ using Google.MiniJSON;
 public class AddFriend : MonoBehaviour
 {
     public TMP_Text username;
+    public GameObject message;
     public GameObject requestPanel;
     private User selectedUser;
     private DatabaseReference mDatabase;
@@ -94,8 +95,8 @@ public class AddFriend : MonoBehaviour
         string json = JsonUtility.ToJson(friendRequest);
         mDatabase.Child("users").Child(selectedUser.id).Child("friendRequests").Child(requestId).SetRawJsonValueAsync(json);
 
-
-
+        requestPanel.gameObject.SetActive(false);
+        message.gameObject.SetActive(true);
      }
 
 
