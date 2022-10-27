@@ -18,7 +18,7 @@ public class AddFriend : MonoBehaviour
     public GameObject friendSlot;
     private DatabaseReference mDatabase;
     Dictionary<string, FriendRequest> frRequests = new Dictionary<string, FriendRequest>();
-    Dictionary<string, OwnFriend> friends = new Dictionary<string, OwnFriend>();
+    Dictionary<string, OwnFriend> friendsDic = new Dictionary<string, OwnFriend>();
 
 
     private void OnEnable()
@@ -83,15 +83,17 @@ public class AddFriend : MonoBehaviour
                     Dictionary<string, object> friend = (Dictionary<string, object>)userDoc.Value;
                     OwnFriend fR = new OwnFriend((string)friend["id"], (string)friend["userName"]);
 
-                    if (!friends.ContainsKey(fR.Id))
+                    if (!friendsDic.ContainsKey(fR.Id))
                     {
 
-                      
-                            friends.Add(fR.Id, fR);
+
+                        friendsDic.Add(fR.Id, fR);
                             NotificationCenter.instance.AddNotificationFriendAccepted(fR);
                     }
+                    
+                    
                     GameObject friendSlot_ = Instantiate(friendSlot, friendSlot.transform.parent);
-                    friendSlot.gameObject.SetActive(true);
+                    friendSlot_.gameObject.SetActive(true);
                     friendSlot_.GetComponentInChildren<TMP_Text>().text = fR.username;
                 }
             }
