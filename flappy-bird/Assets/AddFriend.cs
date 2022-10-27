@@ -6,6 +6,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using Google.MiniJSON;
 using UnityEditor.PackageManager.Requests;
+using UnityEngine.Playables;
 
 public class AddFriend : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class AddFriend : MonoBehaviour
     public GameObject newFriendMessage;
     public GameObject requestPanel;
     private User selectedUser;
+    public GameObject friendSlot;
     private DatabaseReference mDatabase;
-    Dictionary<string, FriendRequest> mFriends = new Dictionary<string, FriendRequest>();
+    Dictionary<string, FriendRequest> frRequests = new Dictionary<string, FriendRequest>();
+    Dictionary<string, OwnFriend> friends = new Dictionary<string, OwnFriend>();
 
 
     private void OnEnable()
@@ -59,24 +62,40 @@ public class AddFriend : MonoBehaviour
                 {
                     Dictionary<string, object> userOnline = (Dictionary<string, object>)userDoc.Value;
                     FriendRequest fR = new FriendRequest((string)userOnline["sender"], (bool)userOnline["accepted"], (string)userOnline["requestId"], (string)userOnline["username"]);
-                    if (!mFriends.ContainsKey(fR.requestId))
+                    if (!frRequests.ContainsKey(fR.requestId))
                     {
                         if (!fR.accepted)
                         {
-                            mFriends.Add(fR.requestId, fR);
+                            frRequests.Add(fR.requestId, fR);
                             NotificationCenter.instance.AddNotificationFriendRequest(fR);
                         }
-                    
+                       
+
 
                     }
                 }
             }
+            if (userList.ContainsKey("friends"))
+            {
+                Dictionary<string, object> friends = (Dictionary<string, object>)userList["friends"];
+                foreach (var userDoc in friends)
+                {
+                    Dictionary<string, object> friend = (Dictionary<string, object>)userDoc.Value;
+                    OwnFriend fR = new OwnFriend((string)friend["id"], (string)friend["userName"]);
 
+                    if (!friends.ContainsKey(fR.Id))
+                    {
 
-            
+                      
+                            friends.Add(fR.Id, fR);
+                            NotificationCenter.instance.AddNotificationFriendAccepted(fR);
+                    }
+                    GameObject friendSlot_ = Instantiate(friendSlot, friendSlot.transform.parent);
+                    friendSlot.gameObject.SetActive(true);
+                    friendSlot_.GetComponentInChildren<TMP_Text>().text = fR.username;
+                }
+            }
         }
-
-
     }
 
     public void ShowRequestInfo(Id id)
@@ -141,6 +160,20 @@ public class AddFriend : MonoBehaviour
             this.accepted = accepted;
             this.requestId = requestId;
             this.username = username;
+        }
+    }
+
+    [System.Serializable]
+    public class OwnFriend
+    {
+       
+        public string Id;
+        public string username;
+        public OwnFriend(string Id,string username)
+        {
+            this.Id = Id;
+            this.username = username;
+          
         }
     }
 }

@@ -9,6 +9,7 @@ public class NotificationCenter : MonoBehaviour
     public static NotificationCenter instance;
 
     public GameObject notification;
+    public GameObject notificationNewFriend;
     public GameObject panel;
 
     private void Awake()
@@ -26,4 +27,15 @@ public class NotificationCenter : MonoBehaviour
         newNotification.GetComponent<Notification>().text.text = text;
         newNotification.GetComponent<Notification>().fR = fR;
     }
+    public void AddNotificationFriendAccepted(OwnFriend friend)
+    {
+        panel.SetActive(true);
+
+        Debug.Log(friend.username);
+        string text = friend.username + " ha comenzado a ser tu amigo";
+        GameObject newNotification = Instantiate(notificationNewFriend, notification.transform.parent);
+        newNotification.SetActive(true);
+        newNotification.GetComponent<Notification>().text.text = text;
+    }
+
 }
