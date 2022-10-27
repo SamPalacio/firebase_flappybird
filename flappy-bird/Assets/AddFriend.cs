@@ -122,8 +122,19 @@ public class AddFriend : MonoBehaviour
     public void ShowRequestInfo(Id id)
     {
         selectedUser = UsersOnlineController.instance.activeUsers[id.userId];
-        requestPanel.SetActive(true);
-        username.text = selectedUser.userName;
+        string requestId = id + "r";
+        if (!friendsDic.ContainsKey(selectedUser.id)&& !friendsDic.ContainsKey(requestId))
+        {
+            requestPanel.SetActive(true);
+            username.text = selectedUser.userName;
+
+        }
+        else
+        {
+            string m = "Ya eres amigo de" + selectedUser+ " o tienes una solicitud pendiente";
+            NotificationCenter.instance.AddPopUpNotification(m);
+        }
+        
     }
 
     public void SendFriendRequest()
