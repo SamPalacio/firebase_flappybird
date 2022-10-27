@@ -24,14 +24,31 @@ public class AddFriend : MonoBehaviour
     private void OnEnable()
     {
         Lobby.OnLobbyEnter += InitRequestController;
-
+        UsersOnlineController.onUserChange += GetFriendStatus;
     }
     private void OnDisable()
     {
         Lobby.OnLobbyEnter -= InitRequestController;
-
+        UsersOnlineController.onUserChange -= GetFriendStatus;
     }
+    public void GetFriendStatus(string id,bool status)
+    {
+        if (friendsDic.ContainsKey(id))
+        {
+            if (status)
+            {
+                string m = "Se ha conectado tu amigo " +friendsDic[id].username;
+                NotificationCenter.instance.AddPopUpNotification(m);
 
+            }
+            else
+            {
+                string m = "Se ha desconectado tu amigo " + friendsDic[id].username;
+                NotificationCenter.instance.AddPopUpNotification(m);
+
+            }
+        }
+    }
     public void InitRequestController()
     {
 

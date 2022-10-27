@@ -12,7 +12,7 @@ using Firebase;
 public class UsersOnlineController : MonoBehaviour
 {
     public  Dictionary<string, User> activeUsers = new Dictionary<string, User>();
-
+    public static Action<string,bool> onUserChange;
     public static UsersOnlineController instance;
     DatabaseReference mDatabase;
     
@@ -35,7 +35,7 @@ public class UsersOnlineController : MonoBehaviour
     private void OnDisable()
     {
         Lobby.OnLobbyEnter -= InitUsersOnlineController;
-
+        onUserChange = null;
     }
 
     public void InitUsersOnlineController()
@@ -74,8 +74,8 @@ public class UsersOnlineController : MonoBehaviour
         }
 
         Debug.Log(userConnected["username"] + " is online");
-        
 
+        onUserChange?.Invoke((string)userConnected["id"],true);
            
         
        
@@ -107,6 +107,7 @@ public class UsersOnlineController : MonoBehaviour
         Debug.Log(userDisconnected["username"] + " is offline");
 
 
+        onUserChange?.Invoke((string)userDisconnected["id"], false);
 
 
 
