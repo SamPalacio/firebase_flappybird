@@ -136,7 +136,7 @@ public class MatchMaking : MonoBehaviour
         int time = 10;
         while (time >= 0)
         {
-            fullMatch.text = "Empezando partida en" + time;
+            fullMatch.text = "Empezando partida en " + time;
             yield return new WaitForSeconds(1);
             time -= 1;
         }

@@ -651,7 +651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SAMUEL ANGEL PALACIO MESA  '
+  m_text: Samuel P. Mariana C. Santiago C.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c532135f7990514584da269a4051809, type: 2}
   m_sharedMaterial: {fileID: -1508123942265577542, guid: 9c532135f7990514584da269a4051809, type: 2}
@@ -714,7 +714,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -380.61298, y: 0, z: 0, w: 0}
+  m_margin: {x: -380.61298, y: 0, z: -103.159325, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
