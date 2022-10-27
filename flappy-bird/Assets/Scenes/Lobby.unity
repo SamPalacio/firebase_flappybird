@@ -6109,9 +6109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6740d4e9dc2e84ea03b46ecf1c828e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerList: {fileID: 0}
-  playerCount: {fileID: 0}
-  minPlayers: 0
+  playerList: {fileID: 2110794321}
+  playerCount: {fileID: 1748097394}
+  minPlayers: 3
 --- !u!1 &1626059873
 GameObject:
   m_ObjectHideFlags: 0
@@ -7143,7 +7143,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1748529109}
-  - component: {fileID: 1748529110}
   m_Layer: 5
   m_Name: SearchMatch
   m_TagString: Untagged
@@ -7177,21 +7176,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1748529110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748529108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6740d4e9dc2e84ea03b46ecf1c828e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerList: {fileID: 0}
-  playerCount: {fileID: 0}
-  minPlayers: 0
 --- !u!1 &1836968613
 GameObject:
   m_ObjectHideFlags: 0
