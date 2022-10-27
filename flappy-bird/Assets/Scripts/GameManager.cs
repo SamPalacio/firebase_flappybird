@@ -1,4 +1,5 @@
 using Firebase.Auth;
+using Firebase.Database;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverCanvas;
     public UnityEvent OnGameOver=new UnityEvent();
     public static  GameManager instance;
+    private DatabaseReference mDatabase;
+
     private void Awake()
     {
         instance = this;
@@ -54,7 +57,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("main");
     }
 
-    
+    private void OnApplicationQuit()
+    {
+        
+            mDatabase = FirebaseDatabase.DefaultInstance.RootReference;
+            string UserId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+            mDatabase.Child("online-users").Child(UserId).SetValueAsync(null);
+
+        
+    }
 }
 
 
