@@ -106,12 +106,14 @@ public class AddFriend : MonoBehaviour
 
                         friendsDic.Add(fR.Id, fR);
                             NotificationCenter.instance.AddNotificationFriendAccepted(fR);
+
+                        GameObject friendSlot_ = Instantiate(friendSlot, friendSlot.transform.parent);
+                        friendSlot_.gameObject.SetActive(true);
+                        friendSlot_.GetComponentInChildren<TMP_Text>().text = fR.username;
                     }
                     
                     
-                    GameObject friendSlot_ = Instantiate(friendSlot, friendSlot.transform.parent);
-                    friendSlot_.gameObject.SetActive(true);
-                    friendSlot_.GetComponentInChildren<TMP_Text>().text = fR.username;
+                    
                 }
             }
         }
