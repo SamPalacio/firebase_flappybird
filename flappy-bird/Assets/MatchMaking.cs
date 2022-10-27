@@ -42,7 +42,7 @@ public class MatchMaking : MonoBehaviour
 
                         Dictionary<string, object> players = (Dictionary<string, object>)partida["players"];
                         int playerIndex = players.Keys.Count + 1;
-                        mDatabase.Child("partidas").Child(item.Key).Child("players").Child("player"+ playerIndex).SetValueAsync(username)
+                        mDatabase.Child("partidas").Child(item.Key).Child("players").Child("player" + playerIndex).SetValueAsync(username);
                     }
                 }
 
