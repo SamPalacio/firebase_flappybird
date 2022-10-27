@@ -123,7 +123,7 @@ public class AddFriend : MonoBehaviour
     {
         selectedUser = UsersOnlineController.instance.activeUsers[id.userId];
         string requestId = id + "r";
-        if (!friendsDic.ContainsKey(selectedUser.id)&& !friendsDic.ContainsKey(requestId))
+        if (!friendsDic.ContainsKey(selectedUser.id)&& !frRequests.ContainsKey(requestId))
         {
             requestPanel.SetActive(true);
             username.text = selectedUser.userName;
