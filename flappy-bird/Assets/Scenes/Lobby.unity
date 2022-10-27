@@ -1360,8 +1360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: {fileID: 897197702}
   message: {fileID: 954724218}
-  newFriendMessage: {fileID: 0}
-  requestPanel: {fileID: 2103832740}
+  newFriendMessage: {fileID: 2103832740}
+  requestPanel: {fileID: 1341842811}
 --- !u!1 &743100000
 GameObject:
   m_ObjectHideFlags: 0
