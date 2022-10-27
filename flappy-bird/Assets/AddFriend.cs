@@ -131,7 +131,7 @@ public class AddFriend : MonoBehaviour
         }
         else
         {
-            string m = "Ya eres amigo de" + selectedUser+ " o tienes una solicitud pendiente";
+            string m = "Ya eres amigo de " + selectedUser.userName + " o tienes una solicitud pendiente";
             NotificationCenter.instance.AddPopUpNotification(m);
         }
         
