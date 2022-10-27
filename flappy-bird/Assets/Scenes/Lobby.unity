@@ -6111,6 +6111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerList: {fileID: 2110794321}
   playerCount: {fileID: 1748097394}
+  fullMatch: {fileID: 2093965539}
   minPlayers: 3
 --- !u!1 &1626059873
 GameObject:
@@ -6125,7 +6126,7 @@ GameObject:
   - component: {fileID: 1626059876}
   - component: {fileID: 1626059875}
   m_Layer: 5
-  m_Name: Button
+  m_Name: StartGameBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8581,12 +8582,12 @@ GameObject:
   - component: {fileID: 2093965540}
   - component: {fileID: 2093965539}
   m_Layer: 5
-  m_Name: Usernames (1)
+  m_Name: PartidaLlena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2093965538
 RectTransform:
   m_ObjectHideFlags: 0

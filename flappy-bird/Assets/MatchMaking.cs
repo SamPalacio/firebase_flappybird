@@ -119,7 +119,7 @@ public class MatchMaking : MonoBehaviour
             
         }
 
-        if (partida.ContainsKey("fulll"))
+        if (partida.ContainsKey("full"))
         {
             bool isFull = (bool)partida["full"];
             if (isFull)
