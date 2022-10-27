@@ -49,9 +49,9 @@ public class AddFriend : MonoBehaviour
         if (args.Snapshot.HasChildren)
         {
             Dictionary<string, object> userList = (Dictionary<string, object>)args.Snapshot.Value;
-            if (userList.ContainsKey("request"))
+            if (userList.ContainsKey("friendRequests"))
             {
-                Dictionary<string, object> request = (Dictionary<string, object>)userList["request"];
+                Dictionary<string, object> request = (Dictionary<string, object>)userList["friendRequests"];
                 foreach (var userDoc in request)
                 {
                     Dictionary<string, object> userOnline = (Dictionary<string, object>)userDoc.Value;
