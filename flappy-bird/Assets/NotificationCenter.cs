@@ -24,6 +24,6 @@ public class NotificationCenter : MonoBehaviour
         GameObject newNotification = Instantiate(notification, notification.transform.parent);
         newNotification.SetActive(true);
         newNotification.GetComponent<Notification>().text.text = text;
-        newNotification.GetComponent<Notification>().id = fR.requestId;
+        newNotification.GetComponent<Notification>().fR = fR;
     }
 }
